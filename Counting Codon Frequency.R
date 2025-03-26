@@ -1,0 +1,10 @@
+dna_data <- read.fasta("insulin.fasta", seqtype = "DNA")
+dna_seq <- toupper (paste(dna_data[[1]], collapse = ''))
+cat (dna_seq)
+seq_length<-nchar(dna_seq)
+cat (seq_length)
+codons <- substring (dna_seq,seq(1,seq_length- 2, by = 3), seq(3, seq_length, by = 3))
+cat(codons)
+codon_count<- table(codons)
+print (codon_count)
+
